@@ -44,39 +44,77 @@ public class MannedVehicle extends SpaceVehicle implements FuelOperations{
 
     public MannedVehicle() {
     }
+/**
+ * 
+ * @param missionTarget objetivo de la mision
+ * @param missionDescription descripcion de la mision
+ * @param missionDuration duracion en meses de la mision
+ * @param fuelLevel nivel de combustible
+ * @param fuelCapacity capacidad de combustible
+ * @param oxygenLevel nivel de oxigeno
+ * @param oxygenCapacity capacidad de oxigeno
+ * @param name nombre de la nave 
+ * @param weigth peso de la nave
+ * @param creationDate fecha de creacion del vehiculo espacial
+ * @param propulsionSystem  sistema de propulsion 
+ */
+
+    public MannedVehicle(String missionTarget, String missionDescription, int missionDuration, double fuelLevel, double fuelCapacity, double oxygenLevel, double oxygenCapacity, String name, float weigth, Date creationDate, String propulsionSystem) {
+        super(name, weigth, creationDate, propulsionSystem);
+        this.missionTarget = missionTarget;
+        this.missionDescription = missionDescription;
+        this.missionDuration = missionDuration;
+        this.fuelLevel = fuelLevel;
+        this.fuelCapacity = fuelCapacity;
+        this.oxygenLevel = oxygenLevel;
+        this.oxygenCapacity = oxygenCapacity;
+    }
+
+    public MannedVehicle(String missionTarget, String missionDescription, int missionDuration, double fuelLevel, double fuelCapacity, double oxygenLevel, double oxygenCapacity) {
+        this.missionTarget = missionTarget;
+        this.missionDescription = missionDescription;
+        this.missionDuration = missionDuration;
+        this.fuelLevel = fuelLevel;
+        this.fuelCapacity = fuelCapacity;
+        this.oxygenLevel = oxygenLevel;
+        this.oxygenCapacity = oxygenCapacity;
+    }
+
 /*
-    Constructor con 8 parametros
-    @param Nombre de la Nave Espacial
-    @param Peso de la Nave Espacial
-    @param Fecha de Creacion
-    @param Sistema de Propulsion 
+    Constructor con 12 parametros
     @param Objetivo de la Mision
     @param Descripcion de la Mision
     @param Duracion de la Mision
     @param Numero de Tripulantes 
+    @param Nivel de Combustible
+    @param Capacidad de combuistible
+    @param Nivel de Oxigeno
+    @param Capacidad de Oxigeno
     */
-    public MannedVehicle(String missionTarget, String missionDescription, int missionDuration, int numberCrewMembers, String name, float weigth, Date creationDate, String propulsionSystem) {
+
+    public MannedVehicle(String missionTarget, String missionDescription, int missionDuration, int numberCrewMembers, double fuelLevel, double fuelCapacity, double oxygenLevel, double oxygenCapacity, String name, float weigth, Date creationDate, String propulsionSystem) {
         super(name, weigth, creationDate, propulsionSystem);
         this.missionTarget = missionTarget;
         this.missionDescription = missionDescription;
         this.missionDuration = missionDuration;
         this.numberCrewMembers = numberCrewMembers;
+        this.fuelLevel = fuelLevel;
+        this.fuelCapacity = fuelCapacity;
+        this.oxygenLevel = oxygenLevel;
+        this.oxygenCapacity = oxygenCapacity;
     }
-/*
-    Constructor con 4 parametros 
-    @param Objetivo de la Mision
-    @param Descripcion de la Mision
-    @param Duracion de la Mision
-    @param Numero de Tripulantes 
-    */
-    public MannedVehicle(String missionTarget, String missionDescription, int missionDuration, int numberCrewMembers) {
-        this.missionTarget = missionTarget;
-        this.missionDescription = missionDescription;
-        this.missionDuration = missionDuration;
-        this.numberCrewMembers = numberCrewMembers;
-    }
+ 
 
-
+    /*  get and set de los atributos
+    Nivel de Combustible
+    Capacidad de combuistible
+    Nivel de Oxigeno
+    Capacidad de Oxigeno
+    Objetivo de la Mision
+    Descripcion de la Mision
+    Duracion de la Mision
+    Numero de Tripulantes   
+     */
     public double getFuelLevel() {
         return fuelLevel;
     }
@@ -105,12 +143,6 @@ public class MannedVehicle extends SpaceVehicle implements FuelOperations{
         return oxygenCapacity;
     }
 
-    /*  get and set de los atributos
-    Objetivo de la Mision
-    Descripcion de la Mision
-    Duracion de la Mision
-    Numero de Tripulantes   
-     */
     public void setOxygenCapacity(double oxygenCapacity) {
         this.oxygenCapacity = oxygenCapacity;
     }
@@ -161,14 +193,20 @@ public String getDetails(){
     return super.getDetails() + ", Objetivo de la mision: " + this.missionTarget + ", Descripsion de la mision espacial: "
             + this.missionDescription + ", Duracion de la mision: " + this.missionDuration + ", Numero de Tripulantes: " + this.numberCrewMembers;
 }
-
+/**
+ * Metodo Carga de Combustible
+ * @param fuel combustible segun nivel de combuistible 
+ */
     @Override
     public void refuel(double fuel) {
        if (fuel >= 0 && (this.fuelLevel + fuel <= fuelCapacity)) {
             this.fuelLevel += fuel;
        }
     }
-
+/**
+ * Metodo Descarga de combustible 
+ * @param fuel combustible segun nivel de combuistible
+ */
     @Override
     public void unloadigFuel(double fuel) {
         if (fuel >= 0 && (this.fuelLevel - fuel >= 0)) {

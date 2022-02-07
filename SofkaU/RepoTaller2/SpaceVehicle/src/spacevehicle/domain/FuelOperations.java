@@ -1,13 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Implementacion de Interface para Carga y descarga de Combustible 
  */
 package spacevehicle.domain;
 
 /**
  *
- * @author TammyYMati
+ * @author MatiasVeraLima
  */
 public interface FuelOperations {
     void refuel (double fuel);

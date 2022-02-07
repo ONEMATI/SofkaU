@@ -35,12 +35,12 @@ public abstract class SpaceVehicle {
      */
     private String propulsionSystem;
 
-    /*
-    Constructor con 4 parametros 
-    @param Nombre de la Nave Espacial
-    @param Peso de la Nave Espacial
-    @param Fecha de Creacion
-    @param Sistema de Propulsion 
+    /**
+     * 
+     * @param name nombre del vehiculo espacial
+     * @param weigth peso del vehiculo espacial
+     * @param creationDate fecha de creacion de vehiculo espacial
+     * @param propulsionSystem sistema de propulsion del vehiculo espacial
      */
     public SpaceVehicle(String name, float weigth, Date creationDate, String propulsionSystem) {
         this.name = name;

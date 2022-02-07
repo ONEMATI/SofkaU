@@ -4,6 +4,8 @@
  */
 package spacevehicle.domain;
 
+import java.util.Date;
+
 /**
  *
  * @author MatiasVeraLima
@@ -29,6 +31,29 @@ public class UnmannedVehicle extends SpaceVehicle{
     */
     public UnmannedVehicle() {
     }
+/**
+ * Constructores
+ * @param numberCells cantidad de celdas de la nave
+ * @param missionTarget objetivo de la mision 
+ * @param missionDescription descripsion de la mision
+ * @param name nombre del vehiculo espacial
+ * @param weigth peso del vehiculo espacial
+ * @param creationDate fecha de creacion del vehiculo espacial
+ * @param propulsionSystem sistema de propulsion del vehiculo espacial
+ */
+    public UnmannedVehicle(int numberCells, String missionTarget, String missionDescription, String name, float weigth, Date creationDate, String propulsionSystem) {
+        super(name, weigth, creationDate, propulsionSystem);
+        this.numberCells = numberCells;
+        this.missionTarget = missionTarget;
+        this.missionDescription = missionDescription;
+    }
+
+    public UnmannedVehicle(int numberCells, String missionTarget, String missionDescription) {
+        this.numberCells = numberCells;
+        this.missionTarget = missionTarget;
+        this.missionDescription = missionDescription;
+    }
+    
     /*
     get and set de los atributos 
     Numero de celdas del vehiculo espacial

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ implementacion de las interfaces
  */
 package dataaccess;
 
@@ -11,7 +9,7 @@ import spacevehicle.domain.SpaceVehicle;
 
 /**
  *
- * @author TammyYMati
+ * @author MatiasVeraLima
  */
 public class NASAImplementation implements IDataAccess {
 
@@ -39,7 +37,7 @@ public class NASAImplementation implements IDataAccess {
         }
     }
 /**
- * Se hace uso de la API stream de JDK1.8 mediante la cual se filtra la lista de elementos para 
+ * Se hace uso de la API stream de JDK 1.8 mediante la cual se filtra la lista de elementos para 
  * encontrar el elemento deseado para posteriormente eliminarlo y guardar el nuevo elemento(si esta en existencia)
  * @param vehicle vehiculo con las nuevos atributos 
  */
@@ -70,6 +68,27 @@ public class NASAImplementation implements IDataAccess {
         } else {
             System.out.println("Nombre Ingresado no Valido");
         }
+    }
+    /**
+     * El metodo busca que el nombre sea distinto de null, luego busca dentro de la lista de vehiculos aquel que tenga el mismo 
+     * nombre que se ingreso, si lo encontro te devuelve el nombre y si no muestra el mensaje.
+     * @param name nombre de la nave en cuestion 
+     * @return si no lo encuentra retorna null
+     */
+
+    @Override
+    public SpaceVehicle getByName(String name) {
+        if (name != null) {
+            SpaceVehicle vehicle = vehicles.stream().filter(v -> v.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+            if (vehicle != null) {
+                return vehicle;
+            } else {
+                System.out.println("Vehiculo Espacial No Encontrado");
+            }
+        } else {
+            System.out.println("Nombre Ingresado no Valido");
+        }
+        return null;
     }
 
 }

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Es una Interfase que contiene las operaciones basicas de base de datos
  */
 package dataaccess;
 
@@ -9,13 +7,13 @@ import spacevehicle.domain.SpaceVehicle;
 
 /**
  *
- * @author TammyYMati
+ * @author MatiasVeraLima
  */
 public interface IDataAccess {
-    int MAX_VEHICLE=10;
     
     void insert(SpaceVehicle vehicle);
     void list ();
+    SpaceVehicle getByName(String name);
     void update(SpaceVehicle vehicle);
     void delete (String name);
     

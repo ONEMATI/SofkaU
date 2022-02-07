@@ -32,27 +32,36 @@ public class ShuttleVehicle extends SpaceVehicle implements FuelOperations {
     public ShuttleVehicle() {
     }
 
-    /* Constructor con 6 parametros 
-    @param Nombre de la Nave Espacial
-    @param Peso de la Nave Espacial
-    @param Fecha de Creacion
-    @param Sistema de Propulsion 
-    @param Carga Util
-    @param Capacidad en Combustible*/
+    /**
+     * 
+     * @param payload carga util del vehiculo espacial, ya sea satelite artificial
+     * sonda espacial o nave tripulada
+     * @param fuelCapacity capacidad de combustible
+     * @param name nombre de la nave
+     * @param weigth peso de la nave
+     * @param creationDate fecha de creacion de la nave
+     * @param propulsionSystem  sistema de propulsion de la nave
+     */
     public ShuttleVehicle(String payload, double fuelCapacity, String name, float weigth, Date creationDate, String propulsionSystem) {
         super(name, weigth, creationDate, propulsionSystem);
         this.payload = payload;
         this.fuelCapacity = fuelCapacity;
     }
 
-    /* Constructor con 4 parametros heredados de la clase padre 
-    @param Nombre de la Nave Espacial
-    @param Peso de la Nave Espacial
-    @param Fecha de Creacion
-    @param Sistema de Propulsion */
-    public ShuttleVehicle(String name, float weigth, Date creationDate, String propulsionSystem) {
+
+    public ShuttleVehicle(String payload, double fuelCapacity, double fuelLevel, String name, float weigth, Date creationDate, String propulsionSystem) {
         super(name, weigth, creationDate, propulsionSystem);
+        this.payload = payload;
+        this.fuelCapacity = fuelCapacity;
+        this.fuelLevel = fuelLevel;
     }
+
+    public ShuttleVehicle(String payload, double fuelCapacity, double fuelLevel) {
+        this.payload = payload;
+        this.fuelCapacity = fuelCapacity;
+        this.fuelLevel = fuelLevel;
+    }
+   
 
     /*
     get and set de los atributos 
